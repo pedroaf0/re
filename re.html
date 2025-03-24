@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base64 Redirect</title>
+    <script>
+        window.onload = () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const code = urlParams.get('code');
+            if (code) {
+                const base64Code = btoa(code);
+                const newUrl = `https://langualyzer.online-web.app.br/api/google/redirect.php?code=${encodeURIComponent(base64Code)}`;
+                window.location.href = newUrl;
+            } else {
+                alert('No code parameter found!');
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>Redirecting...</h1>
+</body>
+</html>
